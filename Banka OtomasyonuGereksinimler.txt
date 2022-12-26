@@ -1,0 +1,44 @@
+1- Müşteri Ekleme
+
+*Her müşterinin unique bir "Müşteri Numarası" olmalı
+*Eklenen müşterinin ticari veya bireysel olup olmadığı belirlenmeli
+
+2- Hesap Açma
+*Her hesabın unique bir "Hesap Numarası" olmalı
+
+3-Para Çekme
+*Para çekilmek istenen hesap belirlenecek
+*Belirlenen hesapta yeterli para yoksa işlem gerçekleşmeyecek
+*Belirlenen hesapta yeterli para yoksa ve müşterinin birden fazla hesabı varsa para ordan çekilecek
+*Para çekme limiti günlük 750 TL'dir
+
+4- Para Yatırma
+*Para yatırılmak istenen hesap belirlenecek
+
+5- Hesaba Havale
+*Havale yapılacak hesabın var olup olmadığı kontrol edilecek
+*Havale tutarı havale yapan hesaptan eksilecek
+*Havale tutarı havaleyi alan hesaba eklenecek
+*Havaleyi yapan müşteri bireysel ise havale tutarının %2'si müşterinin hesabından eksilecek
+
+6- Banka Gelir-Gider Raporu
+*Bankada bulunan toplam para, bankaya gelen ve bankadan giden(?) hesaplanacak
+
+7- Hesap Özeti
+*Hesap belirlenecek
+*Tarih aralığı belirlenecek
+*Hesaba yatırılan ve çekilen miktar,
+ havale yapılmışsa kime yapıldığı ve tutarı,
+ havale geldiyse kimden geldiği ve tutarı,
+ işlem tarihleri gösterilecek
+
+8- Hesap Kapatma
+*Hesap bakiyesinin 0 olması gerekmektedir
+*Bakiye kontrolü yapılacak
+*Bakiye 0 değilse para çekme önerilecek
+*Kabul edilmez ise işleminize ..... gerekçesiyle devam edemiyoruz mesajı verilecek
+
+Not: Banka hesabı olacak mı?
+
+
+
