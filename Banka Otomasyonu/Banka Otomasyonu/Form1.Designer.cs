@@ -33,7 +33,7 @@ namespace Banka_Otomasyonu
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_YeniMusteriyim = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,22 +66,23 @@ namespace Banka_Otomasyonu
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(333, 260);
+            this.button1.Location = new System.Drawing.Point(336, 260);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 44);
             this.button1.TabIndex = 7;
             this.button1.Text = "Giriş";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_YeniMusteriyim
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(171, 260);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 44);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Yeni Müşteriyim";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_YeniMusteriyim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_YeniMusteriyim.Location = new System.Drawing.Point(147, 260);
+            this.btn_YeniMusteriyim.Name = "btn_YeniMusteriyim";
+            this.btn_YeniMusteriyim.Size = new System.Drawing.Size(180, 44);
+            this.btn_YeniMusteriyim.TabIndex = 8;
+            this.btn_YeniMusteriyim.Text = "Yeni Müşteriyim";
+            this.btn_YeniMusteriyim.UseVisualStyleBackColor = true;
+            this.btn_YeniMusteriyim.Click += new System.EventHandler(this.btn_YeniMusteriyim_Click);
             // 
             // label4
             // 
@@ -121,7 +122,7 @@ namespace Banka_Otomasyonu
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_YeniMusteriyim);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
@@ -139,7 +140,7 @@ namespace Banka_Otomasyonu
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_YeniMusteriyim;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

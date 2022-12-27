@@ -16,5 +16,11 @@ namespace Banka_Otomasyonu
         {
             InitializeComponent();
         }
+
+        private void btn_YeniMusteriyim_Click(object sender, EventArgs e)
+        {
+            frmYeniMusteri frmYeniMusteri = new frmYeniMusteri();
+            frmYeniMusteri.Show();
+        }
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banka.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,8 +77,17 @@
     <Compile Include="frmParaCek.Designer.cs">
       <DependentUpon>frmParaCek.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmYeniMusteri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYeniMusteri.Designer.cs">
+      <DependentUpon>frmYeniMusteri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hesap.cs" />
+    <Compile Include="Musteri.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ticari.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmParaCek.resx">
       <DependentUpon>frmParaCek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYeniMusteri.resx">
+      <DependentUpon>frmYeniMusteri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

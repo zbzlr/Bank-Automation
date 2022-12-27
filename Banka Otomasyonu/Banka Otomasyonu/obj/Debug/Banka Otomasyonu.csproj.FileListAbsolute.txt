@@ -1,0 +1,15 @@
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\bin\Debug\Banka Otomasyonu.exe.config
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\bin\Debug\Banka Otomasyonu.exe
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\bin\Debug\Banka Otomasyonu.pdb
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka Otomasyonu.csproj.AssemblyReference.cache
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka_Otomasyonu.frm_login.resources
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka_Otomasyonu.frmAnaEkran.resources
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka_Otomasyonu.frmHavaleYap.resources
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka_Otomasyonu.frmHesaplariYonet.resources
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka_Otomasyonu.frmParaCekYatir.resources
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka_Otomasyonu.frmYeniMusteri.resources
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka_Otomasyonu.Properties.Resources.resources
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka Otomasyonu.csproj.GenerateResource.cache
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka Otomasyonu.csproj.CoreCompileInputs.cache
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka Otomasyonu.exe
+C:\Users\ziyab\Projects\C# Projects\Banka Otomasyonu\Banka Otomasyonu\Banka Otomasyonu\obj\Debug\Banka Otomasyonu.pdb
