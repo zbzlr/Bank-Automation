@@ -29,29 +29,29 @@ namespace Banka_Otomasyonu
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_MusteriNo = new System.Windows.Forms.TextBox();
+            this.txt_Sifre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Giris = new System.Windows.Forms.Button();
             this.btn_YeniMusteriyim = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txt_MusteriNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(250, 148);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 22);
-            this.textBox1.TabIndex = 0;
+            this.txt_MusteriNo.Location = new System.Drawing.Point(250, 148);
+            this.txt_MusteriNo.Name = "txt_MusteriNo";
+            this.txt_MusteriNo.Size = new System.Drawing.Size(185, 22);
+            this.txt_MusteriNo.TabIndex = 0;
             // 
-            // textBox2
+            // txt_Sifre
             // 
-            this.textBox2.Location = new System.Drawing.Point(250, 207);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 22);
-            this.textBox2.TabIndex = 1;
+            this.txt_Sifre.Location = new System.Drawing.Point(250, 207);
+            this.txt_Sifre.Name = "txt_Sifre";
+            this.txt_Sifre.Size = new System.Drawing.Size(185, 22);
+            this.txt_Sifre.TabIndex = 1;
             // 
             // label3
             // 
@@ -63,15 +63,16 @@ namespace Banka_Otomasyonu
             this.label3.TabIndex = 6;
             this.label3.Text = "BakırçayBank";
             // 
-            // button1
+            // btn_Giris
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(336, 260);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 44);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Giriş";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_Giris.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_Giris.Location = new System.Drawing.Point(336, 260);
+            this.btn_Giris.Name = "btn_Giris";
+            this.btn_Giris.Size = new System.Drawing.Size(102, 44);
+            this.btn_Giris.TabIndex = 7;
+            this.btn_Giris.Text = "Giriş";
+            this.btn_Giris.UseVisualStyleBackColor = true;
+            this.btn_Giris.Click += new System.EventHandler(this.btn_Giris_Click);
             // 
             // btn_YeniMusteriyim
             // 
@@ -123,12 +124,13 @@ namespace Banka_Otomasyonu
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_YeniMusteriyim);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_Giris);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_Sifre);
+            this.Controls.Add(this.txt_MusteriNo);
             this.Name = "frm_login";
             this.Text = "Müşteri Giriş Ekranı";
+            this.Load += new System.EventHandler(this.frm_login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,10 +138,10 @@ namespace Banka_Otomasyonu
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_MusteriNo;
+        private System.Windows.Forms.TextBox txt_Sifre;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Giris;
         private System.Windows.Forms.Button btn_YeniMusteriyim;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;

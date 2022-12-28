@@ -13,10 +13,10 @@ namespace Banka_Otomasyonu
         public string MusteriAdi { get; set; }
         public string MusteriSoyadi { get; set; }
         public string MusteriTipi { get; set; }
-        public long Sifre { get; set; }
+        public string Sifre { get; set; }
 
         public List<Hesap> Hesaplar = new List<Hesap>();
-        public Musteri(string Isim, string Soyisim, string musteriTipi, long sifre)
+        public Musteri(string Isim, string Soyisim, string musteriTipi, string sifre)
         {
             MusteriNoAta();
             MusteriAdi = Isim;

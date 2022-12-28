@@ -12,9 +12,11 @@ namespace Banka_Otomasyonu
 {
     public partial class frmYeniMusteri : Form
     {
-        public frmYeniMusteri()
+        private Banka banka;
+        public frmYeniMusteri(Banka banka)
         {
             InitializeComponent();
+            this.banka = banka;
         }
 
         private void checkBox_Bireysel_CheckedChanged(object sender, EventArgs e)
@@ -42,7 +44,14 @@ namespace Banka_Otomasyonu
         private void btn_YeniKayitOlustur_Click(object sender, EventArgs e)
         {
             string MusteriTipi;
-            if(checkBox_Bireysel.Checked == true)
+
+            if (SifrelerUyusuyorMu(txt_Sifre.Text, txt_TekrarSifre.Text) == false)
+            {
+                MessageBox.Show("Girdiğiniz Şifreler Aynı Değil.\nLütfen Tekrar Deneyin...");
+                return;
+            }
+
+            if (checkBox_Bireysel.Checked == true)
             {
                 MusteriTipi = "Bireysel";
             } else if (checkBox_Ticari.Checked == true)
@@ -54,12 +63,9 @@ namespace Banka_Otomasyonu
                 return;
             }
 
-            if(SifrelerUyusuyorMu(txt_Sifre.Text,txt_TekrarSifre.Text) == false)
-            {
-                MessageBox.Show("Girdiğiniz Şifreler Aynı Değil.\nLütfen Tekrar Deneyin...");
-                return;
-            }
-            Musteri musteri = new Musteri(txt_Isim.Text, txt_Soyisim.Text,MusteriTipi, Convert.ToInt32(txt_Sifre.Text));
+            
+            Musteri musteri = new Musteri(txt_Isim.Text, txt_Soyisim.Text, MusteriTipi, txt_Sifre.Text);
+            banka.YeniMusteriEkle(musteri);   
             MessageBox.Show("Kayıt Başarılı...\n\nMüşteri Numaranız: " + musteri.MusteriNo);
         }
     }
