@@ -10,8 +10,15 @@ namespace Banka_Otomasyonu
     {
         public string BankaAdi { get; set; }
 
-        public static List<Musteri> Musteriler = new List<Musteri>();
-        
+        public List<Musteri> Musteriler = new List<Musteri>();
+        public int MusterininListedekiIndexi { get; set; }
+
+        public Banka()
+        {
+            BankaAdi = "BakircayBank";
+            Musteri musteri = new Musteri("Ziya", "Bozlar", "Bireysel", "2727", 99);
+            Musteriler.Add(musteri);
+        }
         
         public void YeniMusteriEkle(Musteri musteri)
         {
@@ -20,10 +27,13 @@ namespace Banka_Otomasyonu
 
         private bool SifreDogrula(string Sifre)
         {
+            int i = 0;
+
             foreach(Musteri musteri in Musteriler)
             {
                 if(musteri.Sifre == Sifre) 
-                { 
+                {
+                    MusterininListedekiIndexi = i;
                     return true; 
                 }
             }

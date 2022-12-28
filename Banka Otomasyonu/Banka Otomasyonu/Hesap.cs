@@ -18,7 +18,6 @@ namespace Banka_Otomasyonu
         {
             HesapNo = random.Next(100, 200);
             Bakiye = 0;
-            HesapTipi = "";
         }
     }
 }

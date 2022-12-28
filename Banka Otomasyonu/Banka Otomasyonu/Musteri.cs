@@ -25,11 +25,25 @@ namespace Banka_Otomasyonu
             Sifre = sifre;
         }
 
+        public Musteri(string Isim, string Soyisim, string musteriTipi, string sifre,int MusteriNo)
+        {
+            this.MusteriNo = MusteriNo;
+            MusteriAdi = Isim;
+            MusteriSoyadi = Soyisim;
+            MusteriTipi = musteriTipi;
+            Sifre = sifre;
+        }
+
         public void  HesapEkle()
         {
             Hesap hesap = new Hesap();
             hesap.HesapTipi = MusteriTipi;
             Hesaplar.Add(hesap);
+        }
+
+        public void HesapSil(int HesapIndexi)
+        {
+            Hesaplar.Remove(Hesaplar[HesapIndexi]);
         }
 
         public void MusteriNoAta()

@@ -31,9 +31,9 @@ namespace Banka_Otomasyonu
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.paraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HesaplariYonetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hesapOzetiGoruntuleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paraCekYatirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.havaleYapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,6 +62,19 @@ namespace Banka_Otomasyonu
             this.hToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.hToolStripMenuItem.Text = "Hesap İşlemleri";
             // 
+            // HesaplariYonetToolStripMenuItem
+            // 
+            this.HesaplariYonetToolStripMenuItem.Name = "HesaplariYonetToolStripMenuItem";
+            this.HesaplariYonetToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.HesaplariYonetToolStripMenuItem.Text = "Hesapları Yönet";
+            this.HesaplariYonetToolStripMenuItem.Click += new System.EventHandler(this.HesaplariYonetToolStripMenuItem_Click);
+            // 
+            // hesapOzetiGoruntuleToolStripMenuItem
+            // 
+            this.hesapOzetiGoruntuleToolStripMenuItem.Name = "hesapOzetiGoruntuleToolStripMenuItem";
+            this.hesapOzetiGoruntuleToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.hesapOzetiGoruntuleToolStripMenuItem.Text = "Hesap Özeti Görüntüle";
+            // 
             // paraToolStripMenuItem
             // 
             this.paraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -71,23 +84,12 @@ namespace Banka_Otomasyonu
             this.paraToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
             this.paraToolStripMenuItem.Text = "Para";
             // 
-            // HesaplariYonetToolStripMenuItem
-            // 
-            this.HesaplariYonetToolStripMenuItem.Name = "HesaplariYonetToolStripMenuItem";
-            this.HesaplariYonetToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
-            this.HesaplariYonetToolStripMenuItem.Text = "Hesapları Yönet";
-            // 
-            // hesapOzetiGoruntuleToolStripMenuItem
-            // 
-            this.hesapOzetiGoruntuleToolStripMenuItem.Name = "hesapOzetiGoruntuleToolStripMenuItem";
-            this.hesapOzetiGoruntuleToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
-            this.hesapOzetiGoruntuleToolStripMenuItem.Text = "Hesap Özeti Görüntüle";
-            // 
             // paraCekYatirToolStripMenuItem
             // 
             this.paraCekYatirToolStripMenuItem.Name = "paraCekYatirToolStripMenuItem";
             this.paraCekYatirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.paraCekYatirToolStripMenuItem.Text = "Para Çek/Yatır";
+            this.paraCekYatirToolStripMenuItem.Click += new System.EventHandler(this.paraCekYatirToolStripMenuItem_Click);
             // 
             // havaleYapToolStripMenuItem
             // 

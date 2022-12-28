@@ -28,15 +28,19 @@ namespace Banka_Otomasyonu
         
         public void frm_login_Load(object sender, EventArgs e)
         {
-            banka.BankaAdi = "BakircayBank";
         }
 
         private void btn_Giris_Click(object sender, EventArgs e)
         {
             if (banka.MusteriNoveSifreDogrula(Convert.ToInt32(txt_MusteriNo.Text), txt_Sifre.Text))
             {
-                frmAnaEkran anaEkran = new frmAnaEkran();
+                frmAnaEkran anaEkran = new frmAnaEkran(banka);
                 anaEkran.Show();
+            }
+            else
+            {
+                MessageBox.Show("Müşteri No veya Şifre Hatalı. Lütfen Tekrar Deneyin...");
+                return;
             }
         }
     }
