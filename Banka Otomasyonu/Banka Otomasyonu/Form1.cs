@@ -36,6 +36,8 @@ namespace Banka_Otomasyonu
             {
                 frmAnaEkran anaEkran = new frmAnaEkran(banka);
                 anaEkran.Show();
+                txt_MusteriNo.Clear();
+                txt_Sifre.Clear();
             }
             else
             {

@@ -86,7 +86,7 @@ namespace Banka_Otomasyonu
 
         private void btn_AnaSayfayaDon_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Banka_Otomasyonu
             this.txt_IslemTutari = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_ParaCek = new System.Windows.Forms.Button();
-            this.btn_Iptal = new System.Windows.Forms.Button();
+            this.btn_AnaSayfa = new System.Windows.Forms.Button();
             this.btn_ParaYatir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -94,16 +94,18 @@ namespace Banka_Otomasyonu
             this.btn_ParaCek.TabIndex = 5;
             this.btn_ParaCek.Text = "Çek";
             this.btn_ParaCek.UseVisualStyleBackColor = true;
+            this.btn_ParaCek.Click += new System.EventHandler(this.btn_ParaCek_Click);
             // 
-            // btn_Iptal
+            // btn_AnaSayfa
             // 
-            this.btn_Iptal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_Iptal.Location = new System.Drawing.Point(297, 290);
-            this.btn_Iptal.Name = "btn_Iptal";
-            this.btn_Iptal.Size = new System.Drawing.Size(261, 31);
-            this.btn_Iptal.TabIndex = 6;
-            this.btn_Iptal.Text = "İptal";
-            this.btn_Iptal.UseVisualStyleBackColor = true;
+            this.btn_AnaSayfa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_AnaSayfa.Location = new System.Drawing.Point(297, 290);
+            this.btn_AnaSayfa.Name = "btn_AnaSayfa";
+            this.btn_AnaSayfa.Size = new System.Drawing.Size(261, 31);
+            this.btn_AnaSayfa.TabIndex = 6;
+            this.btn_AnaSayfa.Text = "Ana Sayfa";
+            this.btn_AnaSayfa.UseVisualStyleBackColor = true;
+            this.btn_AnaSayfa.Click += new System.EventHandler(this.btn_AnaSayfa_Click);
             // 
             // btn_ParaYatir
             // 
@@ -122,7 +124,7 @@ namespace Banka_Otomasyonu
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(639, 355);
             this.Controls.Add(this.btn_ParaYatir);
-            this.Controls.Add(this.btn_Iptal);
+            this.Controls.Add(this.btn_AnaSayfa);
             this.Controls.Add(this.btn_ParaCek);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_IslemTutari);
@@ -145,7 +147,7 @@ namespace Banka_Otomasyonu
         private System.Windows.Forms.TextBox txt_IslemTutari;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_ParaCek;
-        private System.Windows.Forms.Button btn_Iptal;
+        private System.Windows.Forms.Button btn_AnaSayfa;
         private System.Windows.Forms.Button btn_ParaYatir;
     }
 }

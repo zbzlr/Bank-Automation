@@ -30,5 +30,15 @@ namespace Banka_Otomasyonu
             frmHesaplariYonet hesaplariYonet = new frmHesaplariYonet(banka);
             hesaplariYonet.Show();
         }
+
+        private void cikisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Oturumunuzu Kapatmak İstediğinize Emin Misiniz?", "Çıkış", MessageBoxButtons.YesNo);
+
+            if(result == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
     }
 }

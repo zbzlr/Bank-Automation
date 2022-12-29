@@ -1,0 +1,17 @@
+1- Çekilmek İstenen Tutarın Tüm Hesapların Toplam Bakiyesinde Olup Olmadığını Kontrol Et
+2- Yoksa Hesaplarınızdaki Bakiye Yetersiz de ve İşlemi Bitir
+3- Çekilmek İstenen Tutar İlk Seçilen Hesapta varsa Parayı Çek ve İşlemi Bitir
+4- Çekilmek İstenen Tutar İlk Seçilen Hesapta Yoksa 5. Adıma Geç
+5- Müşterinin Başka Hesabı Var mı Kontrol Et
+6- Başka Hesabı Yoksa İşlem Başarısız de ve İşlemi Bitir
+7- Başka Hesabı varsa geri kalan tutarı ordan çekmek isteyip istemediğini sor
+8- Başka Hesaptan Kalan Parayı Çekmek İstemezse İşlemi Bitir
+9- Başka Hesaptan Kalan Tutarı Tamamlamak İsterse 10. Adıma Geç
+10- Çekilmek İstenen Tutardan ilk seçilen hesap bakiyesini çıkar
+11- İlk Seçilen Hesaptan Tüm Bakiyeyi Çek
+12- Diğer Hesaplar içerisinden bakiyesi müsait olanı bul
+13- Yeni Çekilmek istenen turarı o hesaptan çek
+14- Diğer Hesaplardan birinin tamamında değil de daha fazla hesapta kalan tutar varsa 15. Adıma Geç
+15- Foreach döngüsü ile her bir hesaptan bu tutarı çek
+16- Paranın Çekildiği Hesapları Müşteriye Bildir
+17- İşlemi Bitir

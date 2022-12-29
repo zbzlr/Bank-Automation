@@ -37,5 +37,55 @@ namespace Banka_Otomasyonu
                 txt_IslemTutari.Clear();
             
         }
+
+        private void btn_ParaCek_Click(object sender, EventArgs e)
+        {
+            int HesapNo = Convert.ToInt32(comboBox_HesapSecimi.SelectedItem);
+            int IslemTutari = Convert.ToInt32(txt_IslemTutari.Text);
+            int ParaCekIslemSonucu; // Para Çekme İşleminin Hangi Yoldan Yapıldığını Anlamamıza Yardımcı Olur
+
+            ParaCekIslemSonucu = banka.Musteriler[banka.MusterininListedekiIndexi].ParaCek(HesapNo, IslemTutari);
+
+
+            if (ParaCekIslemSonucu == 0)    // Hesaplardaki Toplam Para Çekilmek İstenen Tutarı Karşılamıyor
+            {
+                MessageBox.Show("Hesabınızda Yeterli Para Bulunmamaktadır.\n" + "Hesap Bakiyeniz: " + (banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapSecimi.SelectedIndex].Bakiye) + "TL");
+                txt_IslemTutari.Clear();
+                return;
+            }
+
+            if(ParaCekIslemSonucu == 1)    // Seçilen Hesapta Yeterli Para Var Kullanıcı İşlemi Onayladı
+            {
+                MessageBox.Show("İşlem Başarıyla Gerçekleştirildi.\n" + "Güncel Hesap Bakiyeniz:" + banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapSecimi.SelectedIndex].Bakiye + "TL");
+                txt_IslemTutari.Clear();
+                return;
+            }
+
+            if(ParaCekIslemSonucu == 2)    // Seçilen Hesapta Yeterli Para Yoktu ve Kullanıcı Diğer Hesaplardan Tamamlamak İstemedi
+            {
+                MessageBox.Show("İşlem İptal Edildi.");
+                txt_IslemTutari.Clear();
+                return;
+            }
+
+            if(ParaCekIslemSonucu == 3)    // Seçilen Hesapta Yeterli Para Yoktu. Eksik Kalan Tutar Diğer Hesaplardan Tamamlandı
+            {
+                MessageBox.Show("İşleminiz Başarıyla Gerçekleştirildi. Hesaplarınızın Güncel Bakiyesini Hesaplarım Sekmesinden Görüntüleyebilirsiniz");
+                txt_IslemTutari.Clear();
+                return;
+            }
+
+            if(ParaCekIslemSonucu == 4)    // Hesapta Yeterli Para Vardı. Musteri İslemden Vazgecti
+            {
+                MessageBox.Show("İşlem İptal Edildi.");
+                txt_IslemTutari.Clear();
+                return;
+            }
+        }
+
+        private void btn_AnaSayfa_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
