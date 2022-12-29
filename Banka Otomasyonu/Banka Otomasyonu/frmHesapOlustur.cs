@@ -39,6 +39,8 @@ namespace Banka_Otomasyonu
         {
             banka.Musteriler[banka.MusterininListedekiIndexi].HesapEkle();
             HesaplariListele(banka.Musteriler[banka.MusterininListedekiIndexi]);
+
+            MessageBox.Show("Hesabınız Başarıyla Oluşturuldu");
         }
 
         private void frmHesaplariYonet_Load(object sender, EventArgs e)
@@ -76,7 +78,7 @@ namespace Banka_Otomasyonu
                 
                 if(result2 == DialogResult.Yes)
                     {
-                        frmParaCekYatir paraCekYatir = new frmParaCekYatir();   //Para Çek/Yatır Ekranına Yönlendirir
+                        frmParaCekYatir paraCekYatir = new frmParaCekYatir(banka);   //Para Çek/Yatır Ekranına Yönlendirir
                         paraCekYatir.Show();
                     }
             }

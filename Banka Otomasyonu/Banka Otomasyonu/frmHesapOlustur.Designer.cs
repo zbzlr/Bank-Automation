@@ -42,9 +42,10 @@ namespace Banka_Otomasyonu
             // btn_HesapOlustur
             // 
             this.btn_HesapOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_HesapOlustur.Location = new System.Drawing.Point(254, 265);
+            this.btn_HesapOlustur.Location = new System.Drawing.Point(225, 263);
+            this.btn_HesapOlustur.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_HesapOlustur.Name = "btn_HesapOlustur";
-            this.btn_HesapOlustur.Size = new System.Drawing.Size(167, 38);
+            this.btn_HesapOlustur.Size = new System.Drawing.Size(180, 56);
             this.btn_HesapOlustur.TabIndex = 2;
             this.btn_HesapOlustur.Text = "Yeni Hesap Oluştur";
             this.btn_HesapOlustur.UseVisualStyleBackColor = true;
@@ -58,11 +59,13 @@ namespace Banka_Otomasyonu
             this.column_Bakiye});
             this.listView_HesapBilgileri.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listView_HesapBilgileri.FullRowSelect = true;
+            this.listView_HesapBilgileri.GridLines = true;
             this.listView_HesapBilgileri.HideSelection = false;
             this.listView_HesapBilgileri.Location = new System.Drawing.Point(29, 94);
+            this.listView_HesapBilgileri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView_HesapBilgileri.MultiSelect = false;
             this.listView_HesapBilgileri.Name = "listView_HesapBilgileri";
-            this.listView_HesapBilgileri.Size = new System.Drawing.Size(417, 145);
+            this.listView_HesapBilgileri.Size = new System.Drawing.Size(375, 146);
             this.listView_HesapBilgileri.TabIndex = 3;
             this.listView_HesapBilgileri.UseCompatibleStateImageBehavior = false;
             this.listView_HesapBilgileri.View = System.Windows.Forms.View.Details;
@@ -70,23 +73,23 @@ namespace Banka_Otomasyonu
             // column_HesapNo
             // 
             this.column_HesapNo.Text = "Hesap No";
-            this.column_HesapNo.Width = 128;
+            this.column_HesapNo.Width = 81;
             // 
             // column_HesapTuru
             // 
             this.column_HesapTuru.Text = "Hesap Türü";
-            this.column_HesapTuru.Width = 131;
+            this.column_HesapTuru.Width = 98;
             // 
             // column_Bakiye
             // 
             this.column_Bakiye.Text = "Bakiye";
-            this.column_Bakiye.Width = 113;
+            this.column_Bakiye.Width = 85;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(142, 32);
+            this.label2.Location = new System.Drawing.Point(116, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(204, 40);
             this.label2.TabIndex = 5;
@@ -95,9 +98,10 @@ namespace Banka_Otomasyonu
             // btn_HesapSil
             // 
             this.btn_HesapSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_HesapSil.Location = new System.Drawing.Point(64, 265);
+            this.btn_HesapSil.Location = new System.Drawing.Point(29, 263);
+            this.btn_HesapSil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_HesapSil.Name = "btn_HesapSil";
-            this.btn_HesapSil.Size = new System.Drawing.Size(167, 38);
+            this.btn_HesapSil.Size = new System.Drawing.Size(179, 56);
             this.btn_HesapSil.TabIndex = 6;
             this.btn_HesapSil.Text = "Hesabı Kapat";
             this.btn_HesapSil.UseVisualStyleBackColor = true;
@@ -106,9 +110,10 @@ namespace Banka_Otomasyonu
             // btn_AnaSayfayaDon
             // 
             this.btn_AnaSayfayaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_AnaSayfayaDon.Location = new System.Drawing.Point(149, 319);
+            this.btn_AnaSayfayaDon.Location = new System.Drawing.Point(101, 335);
+            this.btn_AnaSayfayaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_AnaSayfayaDon.Name = "btn_AnaSayfayaDon";
-            this.btn_AnaSayfayaDon.Size = new System.Drawing.Size(167, 36);
+            this.btn_AnaSayfayaDon.Size = new System.Drawing.Size(207, 36);
             this.btn_AnaSayfayaDon.TabIndex = 7;
             this.btn_AnaSayfayaDon.Text = "Ana Sayfa";
             this.btn_AnaSayfayaDon.UseVisualStyleBackColor = true;
@@ -124,6 +129,7 @@ namespace Banka_Otomasyonu
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listView_HesapBilgileri);
             this.Controls.Add(this.btn_HesapOlustur);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmHesaplariYonet";
             this.Text = "Müşteri Paneli";
             this.Load += new System.EventHandler(this.frmHesaplariYonet_Load);

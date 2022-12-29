@@ -21,7 +21,7 @@ namespace Banka_Otomasyonu
 
         private void paraCekYatirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmParaCekYatir paraCekYatir = new frmParaCekYatir();
+            frmParaCekYatir paraCekYatir = new frmParaCekYatir(banka);
             paraCekYatir.Show();
         }
 

@@ -46,6 +46,29 @@ namespace Banka_Otomasyonu
             Hesaplar.Remove(Hesaplar[HesapIndexi]);
         }
 
+        private int HesaplarIcindeIndexBelirle(int HesapNo)
+        {
+            int index = 0;
+                foreach (Hesap hesap in Hesaplar)
+                    {
+
+                        if (HesapNo == hesap.HesapNo)
+                            {
+                                return index;
+                            }
+
+                        index++;
+                    }
+            return -1;      // -1 dönerse HesapNo Hesaplar listesinde bulunamadı anlamına geliyor.
+        }
+
+        public void ParaYatir(int HesapNo, int YatirilacakTutar)
+        {
+            int index = HesaplarIcindeIndexBelirle(HesapNo);
+
+            Hesaplar[index].Bakiye += YatirilacakTutar;
+        }
+
         public void MusteriNoAta()
         {
             Random random = new Random();

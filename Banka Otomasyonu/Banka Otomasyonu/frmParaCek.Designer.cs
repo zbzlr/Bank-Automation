@@ -32,7 +32,7 @@ namespace Banka_Otomasyonu
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox_HesapSecimi = new System.Windows.Forms.ComboBox();
-            this.txt_CekilecekTutar = new System.Windows.Forms.TextBox();
+            this.txt_IslemTutari = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_ParaCek = new System.Windows.Forms.Button();
             this.btn_Iptal = new System.Windows.Forms.Button();
@@ -61,18 +61,19 @@ namespace Banka_Otomasyonu
             // 
             // comboBox_HesapSecimi
             // 
+            this.comboBox_HesapSecimi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_HesapSecimi.FormattingEnabled = true;
             this.comboBox_HesapSecimi.Location = new System.Drawing.Point(350, 135);
             this.comboBox_HesapSecimi.Name = "comboBox_HesapSecimi";
             this.comboBox_HesapSecimi.Size = new System.Drawing.Size(159, 24);
             this.comboBox_HesapSecimi.TabIndex = 2;
             // 
-            // txt_CekilecekTutar
+            // txt_IslemTutari
             // 
-            this.txt_CekilecekTutar.Location = new System.Drawing.Point(350, 188);
-            this.txt_CekilecekTutar.Name = "txt_CekilecekTutar";
-            this.txt_CekilecekTutar.Size = new System.Drawing.Size(159, 22);
-            this.txt_CekilecekTutar.TabIndex = 3;
+            this.txt_IslemTutari.Location = new System.Drawing.Point(350, 188);
+            this.txt_IslemTutari.Name = "txt_IslemTutari";
+            this.txt_IslemTutari.Size = new System.Drawing.Size(159, 22);
+            this.txt_IslemTutari.TabIndex = 3;
             // 
             // label3
             // 
@@ -113,6 +114,7 @@ namespace Banka_Otomasyonu
             this.btn_ParaYatir.TabIndex = 7;
             this.btn_ParaYatir.Text = "Yatır";
             this.btn_ParaYatir.UseVisualStyleBackColor = true;
+            this.btn_ParaYatir.Click += new System.EventHandler(this.btn_ParaYatir_Click);
             // 
             // frmParaCekYatir
             // 
@@ -123,12 +125,13 @@ namespace Banka_Otomasyonu
             this.Controls.Add(this.btn_Iptal);
             this.Controls.Add(this.btn_ParaCek);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txt_CekilecekTutar);
+            this.Controls.Add(this.txt_IslemTutari);
             this.Controls.Add(this.comboBox_HesapSecimi);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmParaCekYatir";
             this.Text = "Müşteri Paneli";
+            this.Load += new System.EventHandler(this.frmParaCekYatir_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,7 +142,7 @@ namespace Banka_Otomasyonu
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox_HesapSecimi;
-        private System.Windows.Forms.TextBox txt_CekilecekTutar;
+        private System.Windows.Forms.TextBox txt_IslemTutari;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_ParaCek;
         private System.Windows.Forms.Button btn_Iptal;
