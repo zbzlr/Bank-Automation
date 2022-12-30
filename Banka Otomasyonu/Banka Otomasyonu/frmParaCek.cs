@@ -30,7 +30,7 @@ namespace Banka_Otomasyonu
         private void btn_ParaYatir_Click(object sender, EventArgs e)
         {
             int HesapNo = Convert.ToInt32(comboBox_HesapSecimi.SelectedItem);
-            int YatirilacakTutar = Convert.ToInt32(txt_IslemTutari.Text);
+            double YatirilacakTutar = Convert.ToDouble(txt_IslemTutari.Text);
             banka.Musteriler[banka.MusterininListedekiIndexi].ParaYatir(HesapNo, YatirilacakTutar);
             
                 MessageBox.Show("İşlem Başarılı");
@@ -41,7 +41,7 @@ namespace Banka_Otomasyonu
         private void btn_ParaCek_Click(object sender, EventArgs e)
         {
             int HesapNo = Convert.ToInt32(comboBox_HesapSecimi.SelectedItem);
-            int IslemTutari = Convert.ToInt32(txt_IslemTutari.Text);
+            double IslemTutari = Convert.ToDouble(txt_IslemTutari.Text);
             int ParaCekIslemSonucu; // Para Çekme İşleminin Hangi Yoldan Yapıldığını Anlamamıza Yardımcı Olur
 
             ParaCekIslemSonucu = banka.Musteriler[banka.MusterininListedekiIndexi].ParaCek(HesapNo, IslemTutari);

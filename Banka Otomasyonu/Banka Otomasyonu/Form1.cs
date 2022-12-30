@@ -28,6 +28,10 @@ namespace Banka_Otomasyonu
         
         public void frm_login_Load(object sender, EventArgs e)
         {
+            Musteri musteriAdmin = new Musteri("Ziya", "Bozlar", "Bireysel", "2727", 99);
+            musteriAdmin.HesapEkle();
+            musteriAdmin.Hesaplar[0].Bakiye = 300;
+            banka.YeniMusteriEkle(musteriAdmin);
         }
 
         private void btn_Giris_Click(object sender, EventArgs e)

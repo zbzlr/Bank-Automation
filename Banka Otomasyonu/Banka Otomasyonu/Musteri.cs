@@ -35,6 +35,12 @@ namespace Banka_Otomasyonu
             Sifre = sifre;
         }
 
+        public void MusteriNoAta()
+        {
+            Random random = new Random();
+            MusteriNo = random.Next(200, 1000);
+        }
+
         public void  HesapEkle()
         {
             Hesap hesap = new Hesap();
@@ -47,7 +53,54 @@ namespace Banka_Otomasyonu
             Hesaplar.Remove(Hesaplar[HesapIndexi]);
         }
 
-        private int HesaplarIcindeIndexBelirle(int HesapNo)
+        public int HavaleYap(int HavaleYapilacakHesapNo , double IslemTutari ,int HavaleYapanHesapNo, Banka banka)
+        {
+            
+            int HavaleYapanIndex = HesaplarIcindeIndexBelirle(HavaleYapanHesapNo);
+            if(HesapHavaleIcinMusaitMi(IslemTutari, HavaleYapanIndex) == false)
+            {
+                return 0;   // Hesap Bakiyesi İşlem İçin Yetersiz
+            }
+
+            int MusterininBankadakiIndexi = banka.HesapKimeAit(HavaleYapilacakHesapNo);
+            if (MusterininBankadakiIndexi == -1)
+            {
+                return -1;  // Havale Yapılacak Hesap Bankada Bulunamadı
+            }
+
+            int HavaleYapilacakIndex = banka.Musteriler[MusterininBankadakiIndexi].HesaplarIcindeIndexBelirle(HavaleYapilacakHesapNo);
+
+            Hesaplar[HavaleYapanIndex].Bakiye -= Havale_HesaptanKesilecekTutariBelirle(IslemTutari);    // IslemTutari Gerekiliyse Komisyon Ücretiyle Birlikte Hesaptan Düşüyor
+
+            banka.Musteriler[MusterininBankadakiIndexi].Hesaplar[HavaleYapilacakIndex].Bakiye += IslemTutari;   // Islem Tutari Katrsi Tarafın Hesabına Aktarılıyor
+
+            return 1; // Islem Basarili
+
+        }
+
+        public double Havale_HesaptanKesilecekTutariBelirle(double IslemTutari)  // Ticari Musteriler Komisyonsuz Havale Yapabilir. Bireysel Musteriler Islem Tutarinin %2'si kadar komisyon öderler
+        {
+            double HesaptanKesilecekTutar = IslemTutari;
+
+            if (MusteriTipi == "Bireysel")
+            {
+                HesaptanKesilecekTutar = IslemTutari + (IslemTutari * 0.02);
+            }
+            return HesaptanKesilecekTutar;
+        }
+
+        private bool HesapHavaleIcinMusaitMi(double IslemTutari,int HesapIndexi)       
+        {
+            double HesaptanKesilecekTutar = Havale_HesaptanKesilecekTutariBelirle(IslemTutari);
+
+            if(Hesaplar[HesapIndexi].Bakiye >= HesaptanKesilecekTutar)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public int HesaplarIcindeIndexBelirle(int HesapNo)
         {
             int index = 0;
                 foreach (Hesap hesap in Hesaplar)
@@ -63,28 +116,18 @@ namespace Banka_Otomasyonu
             return -1;      // -1 dönerse HesapNo Hesaplar listesinde bulunamadı anlamına geliyor.
         }
 
-        private bool HesaptaYeterliParaVarMi(int HesapIndexi, int CekilecekTutar)
+        private bool HesaptaYeterliParaVarMi(int HesapIndexi, double IslemTutari)
         {
-            if(Hesaplar[HesapIndexi].Bakiye >= CekilecekTutar)
+            if(Hesaplar[HesapIndexi].Bakiye >= IslemTutari)
             {
                 return true;
             }
             return false;
         }
 
-        private bool MusterininBirdenFazlaHesabiVarMi()
+        private double ToplamBakiye()          // Müşterinin Tüm Hesaplarındaki Bakiyeleri Toplar
         {
-            if (Hesaplar.Count() > 1)
-            {
-                return true;
-            }
-
-            else return false;
-        }
-
-        private int ToplamBakiye()          // Müşterinin Tüm Hesaplarındaki Bakiyeleri Toplar
-        {
-            int ToplamBakiye = 0;
+            double ToplamBakiye = 0;
             foreach (Hesap hesap in Hesaplar)
             {
                 ToplamBakiye += hesap.Bakiye;
@@ -92,7 +135,7 @@ namespace Banka_Otomasyonu
             return ToplamBakiye;
         }
 
-        private bool HesaplarToplamiTutariKarsiliyorMu(int CekilmekIstenenTutar)     // Hesaplar Toplamında Çekilmek İstenen Tutarın Olup Olmadığını Kontrol Eder
+        private bool HesaplarToplamiTutariKarsiliyorMu(double CekilmekIstenenTutar)     // Hesaplar Toplamında Çekilmek İstenen Tutarın Olup Olmadığını Kontrol Eder
         {
             if(ToplamBakiye() >= CekilmekIstenenTutar)
             {
@@ -101,7 +144,7 @@ namespace Banka_Otomasyonu
             return false;
         }
 
-        public int ParaCek(int HesapNo , int CekilecekTutar)
+        public int ParaCek(int HesapNo , double CekilecekTutar)
         {
             int HesapIndexi = HesaplarIcindeIndexBelirle(HesapNo);
 
@@ -112,7 +155,7 @@ namespace Banka_Otomasyonu
             
             if(HesaptaYeterliParaVarMi(HesapIndexi,CekilecekTutar) == true)
             {
-                DialogResult result = MessageBox.Show("Çekilecek Tutar:" + Convert.ToString(CekilecekTutar) + "İşlem Onayınız Sonrasında Gerçekleştirilecektir.", "DİKKAT!", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Çekilecek Tutar:" + Convert.ToString(CekilecekTutar) + "TL" + "\nİşlem Onayınız Sonrasında Gerçekleştirilecektir.", "DİKKAT!", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
                 {
@@ -141,7 +184,7 @@ namespace Banka_Otomasyonu
                 return -1;  // Buraya Düşmemesi Gerekir. Düşerse Sorun Var Demektir.
         }
 
-        private void EksikTutariDigerHesaplardanTamamla(int SecilenHesabinIndexi , int CekilecekTutar)
+        private void EksikTutariDigerHesaplardanTamamla(int SecilenHesabinIndexi , double CekilecekTutar)
         {
             CekilecekTutar -= Hesaplar[SecilenHesabinIndexi].Bakiye;    // Cekilecek Tutardan Seçili Hesabın Bakiyesini Çıkartır
             Hesaplar[SecilenHesabinIndexi].Bakiye = 0;                 // Seçili Hesabın Bakiyesini 0'lar. Yani Seçili Hesaptaki paranın tamamını çeker
@@ -155,18 +198,19 @@ namespace Banka_Otomasyonu
                     Hesaplar[EnCokParaOlanHesapIndexi].Bakiye -= CekilecekTutar;
                     break;
                 } 
+
                 else
                 {
-                    CekilecekTutar -= Hesaplar[EnCokParaOlanHesapIndexi].Bakiye;                        // Cekilecek Tutardan Seçili Hesabın Bakiyesini Çıkartır
-                    Hesaplar[EnCokParaOlanHesapIndexi].Bakiye = 0;                                     // Hesabın Bakiyesini 0'lar
-                    EnCokParaOlanHesapIndexi = EnCokParaOlanHesabiBelirle();                          // Para Çekildikten En Çok Para Olan Hesabı Yeniden Belirler
+                    CekilecekTutar -= Hesaplar[EnCokParaOlanHesapIndexi].Bakiye;         // Cekilecek Tutardan Seçili Hesabın Bakiyesini Çıkartır
+                    Hesaplar[EnCokParaOlanHesapIndexi].Bakiye = 0;                      // Hesabın Bakiyesini 0'lar
+                    EnCokParaOlanHesapIndexi = EnCokParaOlanHesabiBelirle();           // Para Çekildikten Sonra En Çok Para Olan Hesabı Yeniden Belirler
                 }
             }  
         }
 
         private int EnCokParaOlanHesabiBelirle()    
         {                                                                   
-            int EnYuksekButceDegeri = 0;
+            double EnYuksekButceDegeri = 0;
             int index = 0;
             short i = 0;
             foreach(Hesap hesap in Hesaplar)
@@ -182,9 +226,7 @@ namespace Banka_Otomasyonu
             }
             return index;
         }
-
-
-        public void ParaYatir(int HesapNo, int YatirilacakTutar)
+        public void ParaYatir(int HesapNo, double YatirilacakTutar)
         {
             int index = HesaplarIcindeIndexBelirle(HesapNo);
 
@@ -192,11 +234,7 @@ namespace Banka_Otomasyonu
         }
 
         
-        public void MusteriNoAta()
-        {
-            Random random = new Random();
-            MusteriNo = random.Next(200, 1000);
-        }
+       
 
 
     }

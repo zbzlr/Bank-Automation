@@ -9,7 +9,7 @@ namespace Banka_Otomasyonu
     public class Hesap
     {
         public int HesapNo { get; }
-        public int Bakiye { get; set; }
+        public double Bakiye { get; set; }
         public string HesapTipi { get; set; }
 
         Random random = new Random();

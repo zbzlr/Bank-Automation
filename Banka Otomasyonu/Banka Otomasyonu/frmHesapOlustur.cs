@@ -12,9 +12,7 @@ namespace Banka_Otomasyonu
 {
     public partial class frmHesaplariYonet : Form
     {
-        private Banka banka;
-
-        
+        private Banka banka;        
         private void HesaplariListele(Musteri musteri)
         {
             listView_HesapBilgileri.Items.Clear();

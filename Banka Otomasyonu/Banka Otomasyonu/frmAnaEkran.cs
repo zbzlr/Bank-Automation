@@ -40,5 +40,11 @@ namespace Banka_Otomasyonu
                 Close();
             }
         }
+
+        private void havaleYapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHavaleYap havaleYap = new frmHavaleYap(banka);
+            havaleYap.Show();
+        }
     }
 }

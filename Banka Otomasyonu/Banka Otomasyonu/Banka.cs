@@ -16,8 +16,6 @@ namespace Banka_Otomasyonu
         public Banka()
         {
             BankaAdi = "BakircayBank";
-            Musteri musteri = new Musteri("Ziya", "Bozlar", "Bireysel", "2727", 99);
-            Musteriler.Add(musteri);
         }
         
         public void YeniMusteriEkle(Musteri musteri)
@@ -25,35 +23,50 @@ namespace Banka_Otomasyonu
             Musteriler.Add(musteri);
         }
 
-        private bool SifreDogrula(string Sifre)
+        public int HesapKimeAit(int HesapNo)                    // Verilen Hesap Numarasının, Müşteriler Listesinde Kaçıncı Indexteki Kullanıcıya ait olduğunu Belirler
         {
-            int i = 0;
+            int MusteriIndexi = -1;
 
             foreach(Musteri musteri in Musteriler)
             {
-                if(musteri.Sifre == Sifre) 
+                if(musteri.HesaplarIcindeIndexBelirle(HesapNo) != -1)   // -1 Dönüşü "musteri.Hesaplar listesinde bulunamadı" anlamına gelir
                 {
-                    MusterininListedekiIndexi = i;
-                    return true; 
+                    return MusteriIndexi;
                 }
             }
+            return MusteriIndexi;   // Fonksiyondan -1 Dönüşü "Hesap Bankamız Kayıtlarında Bulunamadı" anlamına gelir
+        }
+
+        private bool SifreDogrula(string Sifre, int MusteriIndexi)
+        {
+            
+                if(Musteriler[MusteriIndexi].Sifre == Sifre) 
+                {
+                   
+                    return true; 
+                }
+            
             return false;
         }
 
         private bool MusteriNoDogrula(int MusteriNo)
         {
+            int i = 0;
+
             foreach (Musteri musteri in Musteriler)
             {
                 if (musteri.MusteriNo == MusteriNo)
                 {
+                    MusterininListedekiIndexi = i;          //Musteri Indexi Burda Belirleniyor
                     return true;
                 }
+                i++;
             }
             return false;
         }
         public bool MusteriNoveSifreDogrula(int MusteriNo,string Sifre)
         {
-          if(MusteriNoDogrula(MusteriNo) && SifreDogrula(Sifre))
+          if(MusteriNoDogrula(MusteriNo) && SifreDogrula(Sifre,MusterininListedekiIndexi))
             {
                 return true;
             }
