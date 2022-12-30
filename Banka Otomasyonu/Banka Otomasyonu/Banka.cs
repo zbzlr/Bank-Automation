@@ -25,7 +25,7 @@ namespace Banka_Otomasyonu
 
         public int HesapKimeAit(int HesapNo)                    // Verilen Hesap Numarasının, Müşteriler Listesinde Kaçıncı Indexteki Kullanıcıya ait olduğunu Belirler
         {
-            int MusteriIndexi = -1;
+            int MusteriIndexi = 0;
 
             foreach(Musteri musteri in Musteriler)
             {
@@ -33,8 +33,9 @@ namespace Banka_Otomasyonu
                 {
                     return MusteriIndexi;
                 }
+                MusteriIndexi++;
             }
-            return MusteriIndexi;   // Fonksiyondan -1 Dönüşü "Hesap Bankamız Kayıtlarında Bulunamadı" anlamına gelir
+            return -1;   // Fonksiyondan -1 Dönüşü "Hesap Bankamız Kayıtlarında Bulunamadı" anlamına gelir
         }
 
         private bool SifreDogrula(string Sifre, int MusteriIndexi)

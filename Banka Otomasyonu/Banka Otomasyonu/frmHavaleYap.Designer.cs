@@ -106,6 +106,7 @@ namespace Banka_Otomasyonu
             this.btn_Vazgec.TabIndex = 6;
             this.btn_Vazgec.Text = "Vazgeç";
             this.btn_Vazgec.UseVisualStyleBackColor = true;
+            this.btn_Vazgec.Click += new System.EventHandler(this.btn_Vazgec_Click);
             // 
             // label4
             // 
@@ -119,6 +120,7 @@ namespace Banka_Otomasyonu
             // 
             // comboBox_HavaleYapanHesapNo
             // 
+            this.comboBox_HavaleYapanHesapNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_HavaleYapanHesapNo.FormattingEnabled = true;
             this.comboBox_HavaleYapanHesapNo.Location = new System.Drawing.Point(444, 140);
             this.comboBox_HavaleYapanHesapNo.Name = "comboBox_HavaleYapanHesapNo";
