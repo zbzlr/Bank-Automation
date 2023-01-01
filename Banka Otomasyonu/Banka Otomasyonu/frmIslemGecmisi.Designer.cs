@@ -39,14 +39,14 @@ namespace Banka_Otomasyonu
             this.İşlemTutarı = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.İşlemTarihVeSaati = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage_Havale = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_HesapBakiyesi = new System.Windows.Forms.TextBox();
             this.listView_Havale = new System.Windows.Forms.ListView();
             this.Kategori = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.IslemTutari = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TarihVeSaat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Kimden = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Aciklama = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_HesapBakiyesi = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage_ParaCekYatir.SuspendLayout();
             this.tabPage_Havale.SuspendLayout();
@@ -96,6 +96,7 @@ namespace Banka_Otomasyonu
             // 
             // tabPage_ParaCekYatir
             // 
+            this.tabPage_ParaCekYatir.BackColor = System.Drawing.Color.PaleTurquoise;
             this.tabPage_ParaCekYatir.Controls.Add(this.listView_ParaCekYatir);
             this.tabPage_ParaCekYatir.Location = new System.Drawing.Point(4, 25);
             this.tabPage_ParaCekYatir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -104,17 +105,16 @@ namespace Banka_Otomasyonu
             this.tabPage_ParaCekYatir.Size = new System.Drawing.Size(873, 172);
             this.tabPage_ParaCekYatir.TabIndex = 0;
             this.tabPage_ParaCekYatir.Text = "Para Çek-Yatır Geçmişi";
-            this.tabPage_ParaCekYatir.UseVisualStyleBackColor = true;
             // 
             // listView_ParaCekYatir
             // 
-            this.listView_ParaCekYatir.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.listView_ParaCekYatir.BackColor = System.Drawing.SystemColors.Control;
             this.listView_ParaCekYatir.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.İşlemKategorisi,
             this.İşlemTutarı,
             this.İşlemTarihVeSaati});
             this.listView_ParaCekYatir.HideSelection = false;
-            this.listView_ParaCekYatir.Location = new System.Drawing.Point(7, 6);
+            this.listView_ParaCekYatir.Location = new System.Drawing.Point(10, 4);
             this.listView_ParaCekYatir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView_ParaCekYatir.Name = "listView_ParaCekYatir";
             this.listView_ParaCekYatir.Size = new System.Drawing.Size(857, 160);
@@ -139,6 +139,7 @@ namespace Banka_Otomasyonu
             // 
             // tabPage_Havale
             // 
+            this.tabPage_Havale.BackColor = System.Drawing.Color.PaleTurquoise;
             this.tabPage_Havale.Controls.Add(this.listView_Havale);
             this.tabPage_Havale.Location = new System.Drawing.Point(4, 25);
             this.tabPage_Havale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -147,30 +148,10 @@ namespace Banka_Otomasyonu
             this.tabPage_Havale.Size = new System.Drawing.Size(873, 172);
             this.tabPage_Havale.TabIndex = 1;
             this.tabPage_Havale.Text = "Havale Geçmişi";
-            this.tabPage_Havale.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(283, 391);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 26);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Mevcut Bakiye:";
-            // 
-            // txt_HesapBakiyesi
-            // 
-            this.txt_HesapBakiyesi.Enabled = false;
-            this.txt_HesapBakiyesi.Location = new System.Drawing.Point(456, 396);
-            this.txt_HesapBakiyesi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_HesapBakiyesi.Name = "txt_HesapBakiyesi";
-            this.txt_HesapBakiyesi.Size = new System.Drawing.Size(121, 22);
-            this.txt_HesapBakiyesi.TabIndex = 5;
             // 
             // listView_Havale
             // 
-            this.listView_Havale.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.listView_Havale.BackColor = System.Drawing.SystemColors.Control;
             this.listView_Havale.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Kategori,
             this.IslemTutari,
@@ -179,7 +160,7 @@ namespace Banka_Otomasyonu
             this.Aciklama});
             this.listView_Havale.Enabled = false;
             this.listView_Havale.HideSelection = false;
-            this.listView_Havale.Location = new System.Drawing.Point(8, 6);
+            this.listView_Havale.Location = new System.Drawing.Point(10, 8);
             this.listView_Havale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView_Havale.Name = "listView_Havale";
             this.listView_Havale.Size = new System.Drawing.Size(857, 160);
@@ -211,6 +192,25 @@ namespace Banka_Otomasyonu
             // 
             this.Aciklama.Text = "Açıklama";
             this.Aciklama.Width = 151;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(283, 391);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(168, 26);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Mevcut Bakiye:";
+            // 
+            // txt_HesapBakiyesi
+            // 
+            this.txt_HesapBakiyesi.Enabled = false;
+            this.txt_HesapBakiyesi.Location = new System.Drawing.Point(456, 396);
+            this.txt_HesapBakiyesi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_HesapBakiyesi.Name = "txt_HesapBakiyesi";
+            this.txt_HesapBakiyesi.Size = new System.Drawing.Size(121, 22);
+            this.txt_HesapBakiyesi.TabIndex = 5;
             // 
             // frmIslemGecmisi
             // 
