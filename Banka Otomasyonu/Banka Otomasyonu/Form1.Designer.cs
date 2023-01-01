@@ -29,6 +29,8 @@ namespace Banka_Otomasyonu
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_login));
             this.txt_MusteriNo = new System.Windows.Forms.TextBox();
             this.txt_Sifre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,6 +39,7 @@ namespace Banka_Otomasyonu
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.BakırcayBank = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // txt_MusteriNo
@@ -45,11 +48,13 @@ namespace Banka_Otomasyonu
             this.txt_MusteriNo.Name = "txt_MusteriNo";
             this.txt_MusteriNo.Size = new System.Drawing.Size(185, 22);
             this.txt_MusteriNo.TabIndex = 0;
+            this.txt_MusteriNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_MusteriNo_KeyPress);
             // 
             // txt_Sifre
             // 
             this.txt_Sifre.Location = new System.Drawing.Point(250, 207);
             this.txt_Sifre.Name = "txt_Sifre";
+            this.txt_Sifre.PasswordChar = '*';
             this.txt_Sifre.Size = new System.Drawing.Size(185, 22);
             this.txt_Sifre.TabIndex = 1;
             // 
@@ -115,10 +120,17 @@ namespace Banka_Otomasyonu
             this.label2.TabIndex = 11;
             this.label2.Text = "Müşteri No:";
             // 
+            // BakırcayBank
+            // 
+            this.BakırcayBank.Icon = ((System.Drawing.Icon)(resources.GetObject("BakırcayBank.Icon")));
+            this.BakırcayBank.Text = "BakırçayBank";
+            this.BakırcayBank.Visible = true;
+            // 
             // frm_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(579, 373);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -146,6 +158,7 @@ namespace Banka_Otomasyonu
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NotifyIcon BakırcayBank;
     }
 }
 

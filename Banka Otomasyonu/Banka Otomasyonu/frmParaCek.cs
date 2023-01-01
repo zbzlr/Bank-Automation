@@ -87,5 +87,13 @@ namespace Banka_Otomasyonu
         {
             Close();
         }
+
+        private void txt_IslemTutari_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

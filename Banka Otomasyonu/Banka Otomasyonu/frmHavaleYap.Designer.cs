@@ -78,6 +78,7 @@ namespace Banka_Otomasyonu
             this.txt_HavaleYapilacakHesap.Name = "txt_HavaleYapilacakHesap";
             this.txt_HavaleYapilacakHesap.Size = new System.Drawing.Size(124, 22);
             this.txt_HavaleYapilacakHesap.TabIndex = 3;
+            this.txt_HavaleYapilacakHesap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_HavaleYapilacakHesap_KeyPress);
             // 
             // txt_HavaleTutari
             // 
@@ -85,6 +86,7 @@ namespace Banka_Otomasyonu
             this.txt_HavaleTutari.Name = "txt_HavaleTutari";
             this.txt_HavaleTutari.Size = new System.Drawing.Size(124, 22);
             this.txt_HavaleTutari.TabIndex = 4;
+            this.txt_HavaleTutari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_HavaleTutari_KeyPress);
             // 
             // btn_HavaleYap
             // 
@@ -149,6 +151,7 @@ namespace Banka_Otomasyonu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(651, 503);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.richTextBox_Aciklama);

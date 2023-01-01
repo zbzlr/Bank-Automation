@@ -123,6 +123,7 @@ namespace Banka_Otomasyonu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(475, 394);
             this.Controls.Add(this.btn_AnaSayfayaDon);
             this.Controls.Add(this.btn_HesapSil);

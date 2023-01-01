@@ -33,6 +33,8 @@ namespace Banka_Otomasyonu
             musteriAdmin.Hesaplar[0].Bakiye = 300;
             musteriAdmin.Hesaplar[0].HesapNo = 10;
             banka.YeniMusteriEkle(musteriAdmin);
+
+            BakırcayBank.ShowBalloonTip(5000, "BakıçayBank", "BakırçayBank'a Hoşgeldiniz", ToolTipIcon.Info);
         }
 
         private void btn_Giris_Click(object sender, EventArgs e)
@@ -48,6 +50,14 @@ namespace Banka_Otomasyonu
             {
                 MessageBox.Show("Müşteri No veya Şifre Hatalı. Lütfen Tekrar Deneyin...");
                 return;
+            }
+        }
+
+        private void txt_MusteriNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

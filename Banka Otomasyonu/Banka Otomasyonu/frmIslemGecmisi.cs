@@ -25,10 +25,15 @@ namespace Banka_Otomasyonu
             {
                 comboBox_HesapNo.Items.Add(hesap.HesapNo);
             }
+
+            listView_Havale.BackColor = Color.PaleTurquoise;
         }
 
         private void comboBox_HesapNo_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            listView_Havale.Items.Clear();
+            listView_ParaCekYatir.Items.Clear();
 
             foreach(IslemGecmisi islem in banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapNo.SelectedIndex].Islemler)
             {
@@ -62,8 +67,10 @@ namespace Banka_Otomasyonu
                 item.SubItems.Add(Convert.ToString(islem.IslemTarihi));
                 item.SubItems.Add(KarsiTarafinAdiSoyadi);
                 item.SubItems.Add(islem.Aciklama);
-                listView_ParaCekYatir.Items.Add(item);
+                listView_Havale.Items.Add(item);
             }
+
+            txt_HesapBakiyesi.Text = Convert.ToString(banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapNo.SelectedIndex].Bakiye);
             
         }
     }

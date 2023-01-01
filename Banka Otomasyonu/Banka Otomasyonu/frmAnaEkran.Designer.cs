@@ -29,6 +29,8 @@ namespace Banka_Otomasyonu
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAnaEkran));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HesaplariYonetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,6 +39,7 @@ namespace Banka_Otomasyonu
             this.paraCekYatirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.havaleYapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,6 +109,12 @@ namespace Banka_Otomasyonu
             this.cikisToolStripMenuItem.Text = "Çıkış";
             this.cikisToolStripMenuItem.Click += new System.EventHandler(this.cikisToolStripMenuItem_Click);
             // 
+            // notifyIcon2
+            // 
+            this.notifyIcon2.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon2.Icon")));
+            this.notifyIcon2.Text = "BakırçayBank";
+            this.notifyIcon2.Visible = true;
+            // 
             // frmAnaEkran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -116,6 +125,7 @@ namespace Banka_Otomasyonu
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmAnaEkran";
             this.Text = "Müşteri Paneli";
+            this.Load += new System.EventHandler(this.frmAnaEkran_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -133,5 +143,6 @@ namespace Banka_Otomasyonu
         private System.Windows.Forms.ToolStripMenuItem paraCekYatirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem havaleYapToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cikisToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIcon2;
     }
 }

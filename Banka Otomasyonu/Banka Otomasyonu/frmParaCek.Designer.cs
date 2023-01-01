@@ -74,6 +74,7 @@ namespace Banka_Otomasyonu
             this.txt_IslemTutari.Name = "txt_IslemTutari";
             this.txt_IslemTutari.Size = new System.Drawing.Size(159, 22);
             this.txt_IslemTutari.TabIndex = 3;
+            this.txt_IslemTutari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_IslemTutari_KeyPress);
             // 
             // label3
             // 
@@ -122,6 +123,7 @@ namespace Banka_Otomasyonu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(639, 355);
             this.Controls.Add(this.btn_ParaYatir);
             this.Controls.Add(this.btn_AnaSayfa);

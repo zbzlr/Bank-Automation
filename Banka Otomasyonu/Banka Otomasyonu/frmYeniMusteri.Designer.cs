@@ -118,7 +118,7 @@ namespace Banka_Otomasyonu
             this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.Location = new System.Drawing.Point(83, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(347, 42);
+            this.label3.Size = new System.Drawing.Size(339, 40);
             this.label3.TabIndex = 7;
             this.label3.Text = "Yeni Müşteri/Kayıt";
             // 
@@ -126,6 +126,7 @@ namespace Banka_Otomasyonu
             // 
             this.txt_Sifre.Location = new System.Drawing.Point(236, 248);
             this.txt_Sifre.Name = "txt_Sifre";
+            this.txt_Sifre.PasswordChar = '*';
             this.txt_Sifre.Size = new System.Drawing.Size(172, 22);
             this.txt_Sifre.TabIndex = 8;
             // 
@@ -153,6 +154,7 @@ namespace Banka_Otomasyonu
             // 
             this.txt_TekrarSifre.Location = new System.Drawing.Point(236, 300);
             this.txt_TekrarSifre.Name = "txt_TekrarSifre";
+            this.txt_TekrarSifre.PasswordChar = '*';
             this.txt_TekrarSifre.Size = new System.Drawing.Size(172, 22);
             this.txt_TekrarSifre.TabIndex = 10;
             // 
@@ -160,6 +162,7 @@ namespace Banka_Otomasyonu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(494, 492);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_TekrarSifre);

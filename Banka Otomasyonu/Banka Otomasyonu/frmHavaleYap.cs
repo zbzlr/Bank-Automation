@@ -86,5 +86,21 @@ namespace Banka_Otomasyonu
         {
             Close();
         }
+
+        private void txt_HavaleYapilacakHesap_KeyPress(object sender, KeyPressEventArgs e)      // String Değer Girilmesini Önler
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_HavaleTutari_KeyPress(object sender, KeyPressEventArgs e)      // String Değer Girilmesini Önler
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
