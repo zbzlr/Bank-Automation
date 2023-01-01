@@ -43,7 +43,7 @@ namespace Banka_Otomasyonu
             int HavaleYapanHesapNo = Convert.ToInt32(comboBox_HavaleYapanHesapNo.SelectedItem);
             string Aciklama = richTextBox_Aciklama.Text;
 
-            int HavaleYapIslemSonucu = banka.Musteriler[banka.MusterininListedekiIndexi].HavaleYap(HavaleYapilacakHesapNo, IslemTutari, HavaleYapanHesapNo, banka); // Havale Burda Yapılır
+            int HavaleYapIslemSonucu = banka.Musteriler[banka.MusterininListedekiIndexi].HavaleYap(HavaleYapilacakHesapNo, IslemTutari, HavaleYapanHesapNo,Aciklama, banka); // Havale Burda Yapılır
 
                 if (HavaleYapIslemSonucu == -1)     //Hesap Bulunamadı
                 {

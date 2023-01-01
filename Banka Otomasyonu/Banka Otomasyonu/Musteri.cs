@@ -17,7 +17,8 @@ namespace Banka_Otomasyonu
         public string Sifre { get; set; }
 
         public List<Hesap> Hesaplar = new List<Hesap>();
-        public Musteri(string Isim, string Soyisim, string musteriTipi, string sifre)
+
+        public Musteri(string Isim, string Soyisim, string musteriTipi, string sifre)   // Yeni Kullanıcılar İçin Çalıştırılır
         {
             MusteriNoAta();
             MusteriAdi = Isim;
@@ -26,7 +27,7 @@ namespace Banka_Otomasyonu
             Sifre = sifre;
         }
 
-        public Musteri(string Isim, string Soyisim, string musteriTipi, string sifre,int MusteriNo)
+        public Musteri(string Isim, string Soyisim, string musteriTipi, string sifre,int MusteriNo)     // Sabit Kullanıcı Belirlemek İsterseniz Kullanabilirsiniz.(Kullanıcının Buna Erişimi Yok)
         {
             this.MusteriNo = MusteriNo;
             MusteriAdi = Isim;
@@ -53,7 +54,7 @@ namespace Banka_Otomasyonu
             Hesaplar.Remove(Hesaplar[HesapIndexi]);
         }
 
-        public int HavaleYap(int HavaleYapilacakHesapNo , double IslemTutari ,int HavaleYapanHesapNo, Banka banka)
+        public int HavaleYap(int HavaleYapilacakHesapNo , double IslemTutari ,int HavaleYapanHesapNo,string Aciklama, Banka banka)
         {
             
             int HavaleYapanIndex = HesaplarIcindeIndexBelirle(HavaleYapanHesapNo);
@@ -68,11 +69,22 @@ namespace Banka_Otomasyonu
                 return -1;  // Havale Yapılacak Hesap Bankada Bulunamadı
             }
 
+            
             int HavaleYapilacakIndex = banka.Musteriler[MusterininBankadakiIndexi].HesaplarIcindeIndexBelirle(HavaleYapilacakHesapNo);
+
+            
+
+                Hesaplar[HavaleYapanIndex].IslemEkle( Havale_HesaptanKesilecekTutariBelirle(IslemTutari), "Havale-Hesabınızdan Para Çıktı", DateTime.Now, HavaleYapanHesapNo, HavaleYapilacakHesapNo, Aciklama);  // Havale Yapan Tarafın Hesabına Islem Gecmisi Ekler
+
+                banka.Musteriler[MusterininBankadakiIndexi].Hesaplar[HavaleYapilacakIndex].IslemEkle(IslemTutari, "Havale-Hesabınıza Para Geldi", DateTime.Now, HavaleYapilacakHesapNo, HavaleYapanHesapNo, Aciklama);  // Havale Yapılan Tarafın Hesabına Islem Gecmisi Ekler
+
+
 
             Hesaplar[HavaleYapanIndex].Bakiye -= Havale_HesaptanKesilecekTutariBelirle(IslemTutari);    // IslemTutari Gerekiliyse Komisyon Ücretiyle Birlikte Hesaptan Düşüyor
 
-            banka.Musteriler[MusterininBankadakiIndexi].Hesaplar[HavaleYapilacakIndex].Bakiye += IslemTutari;   // Islem Tutari Katrsi Tarafın Hesabına Aktarılıyor
+            banka.Musteriler[MusterininBankadakiIndexi].Hesaplar[HavaleYapilacakIndex].Bakiye += IslemTutari;   // Islem Tutari Karsi Tarafın Hesabına Aktarılıyor
+
+
 
             return 1; // Islem Basarili
 
@@ -160,6 +172,9 @@ namespace Banka_Otomasyonu
                 if (result == DialogResult.Yes)
                 {
                     Hesaplar[HesapIndexi].Bakiye -= CekilecekTutar;
+
+                    Hesaplar[HesapIndexi].IslemEkle(CekilecekTutar, "Para Çekme", DateTime.Now, HesapNo);
+
                     return 1;    // Seçilen Hesapta Yeterli Para Var İşlem Başarılı   
                 }
                 return 4;  // İşlem Kullanıcı Tarafından İptal Edildi
@@ -189,6 +204,8 @@ namespace Banka_Otomasyonu
             CekilecekTutar -= Hesaplar[SecilenHesabinIndexi].Bakiye;    // Cekilecek Tutardan Seçili Hesabın Bakiyesini Çıkartır
             Hesaplar[SecilenHesabinIndexi].Bakiye = 0;                 // Seçili Hesabın Bakiyesini 0'lar. Yani Seçili Hesaptaki paranın tamamını çeker
 
+            Hesaplar[SecilenHesabinIndexi].IslemEkle(CekilecekTutar, "Para Çekme", DateTime.Now, Hesaplar[SecilenHesabinIndexi].HesapNo);
+
             int EnCokParaOlanHesapIndexi = EnCokParaOlanHesabiBelirle();
 
             while (CekilecekTutar != 0)     
@@ -196,11 +213,16 @@ namespace Banka_Otomasyonu
                 if(Hesaplar[EnCokParaOlanHesapIndexi].Bakiye >= CekilecekTutar)     // En Çok Para Olan Hesaptaki Bakiye Yeterliyse Hepsini Ordan Çeker
                 {
                     Hesaplar[EnCokParaOlanHesapIndexi].Bakiye -= CekilecekTutar;
-                    break;
+
+                    Hesaplar[EnCokParaOlanHesapIndexi].IslemEkle(CekilecekTutar, "Para Çekme", DateTime.Now, Hesaplar[EnCokParaOlanHesapIndexi].HesapNo);
+
+                    return;
                 } 
 
                 else
                 {
+                    Hesaplar[EnCokParaOlanHesapIndexi].IslemEkle(CekilecekTutar, "Para Çekme", DateTime.Now, Hesaplar[EnCokParaOlanHesapIndexi].HesapNo);
+
                     CekilecekTutar -= Hesaplar[EnCokParaOlanHesapIndexi].Bakiye;         // Cekilecek Tutardan Seçili Hesabın Bakiyesini Çıkartır
                     Hesaplar[EnCokParaOlanHesapIndexi].Bakiye = 0;                      // Hesabın Bakiyesini 0'lar
                     EnCokParaOlanHesapIndexi = EnCokParaOlanHesabiBelirle();           // Para Çekildikten Sonra En Çok Para Olan Hesabı Yeniden Belirler
@@ -229,6 +251,8 @@ namespace Banka_Otomasyonu
         public void ParaYatir(int HesapNo, double YatirilacakTutar)
         {
             int index = HesaplarIcindeIndexBelirle(HesapNo);
+
+            Hesaplar[index].IslemEkle(YatirilacakTutar, "Para Yatırma", DateTime.Now, HesapNo);
 
             Hesaplar[index].Bakiye += YatirilacakTutar;
         }

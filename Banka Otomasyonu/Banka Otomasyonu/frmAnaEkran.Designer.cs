@@ -74,6 +74,7 @@ namespace Banka_Otomasyonu
             this.hesapOzetiGoruntuleToolStripMenuItem.Name = "hesapOzetiGoruntuleToolStripMenuItem";
             this.hesapOzetiGoruntuleToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
             this.hesapOzetiGoruntuleToolStripMenuItem.Text = "Hesap Özeti Görüntüle";
+            this.hesapOzetiGoruntuleToolStripMenuItem.Click += new System.EventHandler(this.hesapOzetiGoruntuleToolStripMenuItem_Click);
             // 
             // paraToolStripMenuItem
             // 
@@ -87,14 +88,14 @@ namespace Banka_Otomasyonu
             // paraCekYatirToolStripMenuItem
             // 
             this.paraCekYatirToolStripMenuItem.Name = "paraCekYatirToolStripMenuItem";
-            this.paraCekYatirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.paraCekYatirToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
             this.paraCekYatirToolStripMenuItem.Text = "Para Çek/Yatır";
             this.paraCekYatirToolStripMenuItem.Click += new System.EventHandler(this.paraCekYatirToolStripMenuItem_Click);
             // 
             // havaleYapToolStripMenuItem
             // 
             this.havaleYapToolStripMenuItem.Name = "havaleYapToolStripMenuItem";
-            this.havaleYapToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.havaleYapToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
             this.havaleYapToolStripMenuItem.Text = "Havale Yap";
             this.havaleYapToolStripMenuItem.Click += new System.EventHandler(this.havaleYapToolStripMenuItem_Click);
             // 

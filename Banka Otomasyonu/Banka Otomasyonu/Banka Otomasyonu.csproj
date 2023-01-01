@@ -71,6 +71,12 @@
     <Compile Include="frmHesapOlustur.Designer.cs">
       <DependentUpon>frmHesapOlustur.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIslemGecmisi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIslemGecmisi.Designer.cs">
+      <DependentUpon>frmIslemGecmisi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmParaCek.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,10 +90,10 @@
       <DependentUpon>frmYeniMusteri.cs</DependentUpon>
     </Compile>
     <Compile Include="Hesap.cs" />
+    <Compile Include="IslemGecmisi.cs" />
     <Compile Include="Musteri.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ticari.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHesapOlustur.resx">
       <DependentUpon>frmHesapOlustur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIslemGecmisi.resx">
+      <DependentUpon>frmIslemGecmisi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmParaCek.resx">
       <DependentUpon>frmParaCek.cs</DependentUpon>

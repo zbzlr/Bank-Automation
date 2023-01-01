@@ -46,5 +46,11 @@ namespace Banka_Otomasyonu
             frmHavaleYap havaleYap = new frmHavaleYap(banka);
             havaleYap.Show();
         }
+
+        private void hesapOzetiGoruntuleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIslemGecmisi islemGecmisi = new frmIslemGecmisi(banka);
+            islemGecmisi.Show();
+        }
     }
 }
