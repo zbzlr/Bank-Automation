@@ -29,7 +29,7 @@ namespace Banka_Otomasyonu
         public void frm_login_Load(object sender, EventArgs e)
         {
             Musteri musteriAdmin = new Musteri("Ziya", "Bozlar", "Bireysel", "2727", 99);
-            musteriAdmin.HesapEkle();
+            musteriAdmin.HesapEkle(banka);
             musteriAdmin.Hesaplar[0].Bakiye = 300;
             musteriAdmin.Hesaplar[0].HesapNo = 10;
             banka.YeniMusteriEkle(musteriAdmin);

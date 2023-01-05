@@ -29,6 +29,12 @@ namespace Banka_Otomasyonu
 
         private void btn_ParaYatir_Click(object sender, EventArgs e)
         {
+            if (comboBox_HesapSecimi.SelectedItem == null || string.IsNullOrEmpty(txt_IslemTutari.Text))
+            {
+                MessageBox.Show("Lutfen Sizden İstenen Tüm Bilgileri Giriniz...", "Işlem Başarısız");
+                return;
+            }
+
             int HesapNo = Convert.ToInt32(comboBox_HesapSecimi.SelectedItem);
             double YatirilacakTutar = Convert.ToDouble(txt_IslemTutari.Text);
             banka.Musteriler[banka.MusterininListedekiIndexi].ParaYatir(HesapNo, YatirilacakTutar);
@@ -40,47 +46,73 @@ namespace Banka_Otomasyonu
 
         private void btn_ParaCek_Click(object sender, EventArgs e)
         {
-            int HesapNo = Convert.ToInt32(comboBox_HesapSecimi.SelectedItem);
-            double IslemTutari = Convert.ToDouble(txt_IslemTutari.Text);
-            int ParaCekIslemSonucu; // Para Çekme İşleminin Hangi Yoldan Yapıldığını Anlamamıza Yardımcı Olur
+
+            if(comboBox_HesapSecimi.SelectedItem == null || string.IsNullOrEmpty(txt_IslemTutari.Text))
+            {
+                MessageBox.Show("Lutfen Sizden İstenen Tüm Bilgileri Giriniz...", "Işlem Başarısız");
+                return;
+            }
+
+                    int HesapNo = Convert.ToInt32(comboBox_HesapSecimi.SelectedItem);
+                    double IslemTutari = Convert.ToDouble(txt_IslemTutari.Text);
+                    int ParaCekIslemSonucu;     // Para Çekme İşleminin Hangi Yoldan Yapıldığını Anlamamıza Yardımcı Olur
+
 
             ParaCekIslemSonucu = banka.Musteriler[banka.MusterininListedekiIndexi].ParaCek(HesapNo, IslemTutari);
 
 
-            if (ParaCekIslemSonucu == 0)    // Hesaplardaki Toplam Para Çekilmek İstenen Tutarı Karşılamıyor
+            switch (ParaCekIslemSonucu)                                                                         
             {
-                MessageBox.Show("Hesabınızda Yeterli Para Bulunmamaktadır.\n" + "Hesap Bakiyeniz: " + (banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapSecimi.SelectedIndex].Bakiye) + "TL");
-                txt_IslemTutari.Clear();
-                return;
+                case 0:    // Hesaplardaki Toplam Para Çekilmek İstenen Tutarı Karşılamıyor
+                    
+                    MessageBox.Show("Hesabınızda Yeterli Para Bulunmamaktadır.\n" + "Hesap Bakiyeniz: " + (banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapSecimi.SelectedIndex].Bakiye) + "TL");
+                    txt_IslemTutari.Clear();
+
+                    break;
+
+
+                case 1:    // Seçilen Hesapta Yeterli Para Var Kullanıcı İşlemi Onayladı
+                    
+                    MessageBox.Show("İşlem Başarıyla Gerçekleştirildi.\n" + "Güncel Hesap Bakiyeniz:" + banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapSecimi.SelectedIndex].Bakiye + "TL");
+                    txt_IslemTutari.Clear();
+
+                    break;
+
+
+                case 2:    // Seçilen Hesapta Yeterli Para Yoktu ve Kullanıcı Diğer Hesaplardan Tamamlamak İstemedi
+                    
+                    MessageBox.Show("İşlem İptal Edildi.");
+                    txt_IslemTutari.Clear();
+
+                    break;
+
+
+                case 3:    // Seçilen Hesapta Yeterli Para Yoktu. Eksik Kalan Tutar Diğer Hesaplardan Tamamlandı
+                    
+                    MessageBox.Show("İşleminiz Başarıyla Gerçekleştirildi. Hesaplarınızın Güncel Bakiyesini Hesaplarım Sekmesinden Görüntüleyebilirsiniz");
+                    txt_IslemTutari.Clear();
+
+                    break;
+
+
+                case 4:    // Hesapta Yeterli Para Vardı. Musteri İslemden Vazgecti
+                    
+                    MessageBox.Show("İşlem İptal Edildi.");
+                    txt_IslemTutari.Clear();
+
+                    break;
+
+
+                case 5:    // Tek seferde çekilmek istenen tutarın 750 tl sınırını aştığı anlamına gelir
+
+
+                case 6:    // Gün içindeki işlem tutarının 750 tl sınırını aştığı anlamına gelir
+                    txt_IslemTutari.Clear();
+
+                    break;
+                       
             }
 
-            if(ParaCekIslemSonucu == 1)    // Seçilen Hesapta Yeterli Para Var Kullanıcı İşlemi Onayladı
-            {
-                MessageBox.Show("İşlem Başarıyla Gerçekleştirildi.\n" + "Güncel Hesap Bakiyeniz:" + banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapSecimi.SelectedIndex].Bakiye + "TL");
-                txt_IslemTutari.Clear();
-                return;
-            }
-
-            if(ParaCekIslemSonucu == 2)    // Seçilen Hesapta Yeterli Para Yoktu ve Kullanıcı Diğer Hesaplardan Tamamlamak İstemedi
-            {
-                MessageBox.Show("İşlem İptal Edildi.");
-                txt_IslemTutari.Clear();
-                return;
-            }
-
-            if(ParaCekIslemSonucu == 3)    // Seçilen Hesapta Yeterli Para Yoktu. Eksik Kalan Tutar Diğer Hesaplardan Tamamlandı
-            {
-                MessageBox.Show("İşleminiz Başarıyla Gerçekleştirildi. Hesaplarınızın Güncel Bakiyesini Hesaplarım Sekmesinden Görüntüleyebilirsiniz");
-                txt_IslemTutari.Clear();
-                return;
-            }
-
-            if(ParaCekIslemSonucu == 4)    // Hesapta Yeterli Para Vardı. Musteri İslemden Vazgecti
-            {
-                MessageBox.Show("İşlem İptal Edildi.");
-                txt_IslemTutari.Clear();
-                return;
-            }
         }
 
         private void btn_AnaSayfa_Click(object sender, EventArgs e)

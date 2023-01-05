@@ -47,6 +47,8 @@ namespace Banka_Otomasyonu
             this.Aciklama = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.txt_HesapBakiyesi = new System.Windows.Forms.TextBox();
+            this.comboBox_Tarih = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage_ParaCekYatir.SuspendLayout();
             this.tabPage_Havale.SuspendLayout();
@@ -197,7 +199,7 @@ namespace Banka_Otomasyonu
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(283, 391);
+            this.label3.Location = new System.Drawing.Point(283, 426);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 26);
             this.label3.TabIndex = 4;
@@ -206,18 +208,46 @@ namespace Banka_Otomasyonu
             // txt_HesapBakiyesi
             // 
             this.txt_HesapBakiyesi.Enabled = false;
-            this.txt_HesapBakiyesi.Location = new System.Drawing.Point(456, 396);
+            this.txt_HesapBakiyesi.Location = new System.Drawing.Point(456, 431);
             this.txt_HesapBakiyesi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_HesapBakiyesi.Name = "txt_HesapBakiyesi";
             this.txt_HesapBakiyesi.Size = new System.Drawing.Size(121, 22);
             this.txt_HesapBakiyesi.TabIndex = 5;
+            // 
+            // comboBox_Tarih
+            // 
+            this.comboBox_Tarih.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Tarih.FormattingEnabled = true;
+            this.comboBox_Tarih.Items.AddRange(new object[] {
+            "Tüm Zamanlar",
+            "Bugün",
+            "Son 1 Hafta",
+            "Son 1 Ay"});
+            this.comboBox_Tarih.Location = new System.Drawing.Point(456, 392);
+            this.comboBox_Tarih.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox_Tarih.Name = "comboBox_Tarih";
+            this.comboBox_Tarih.Size = new System.Drawing.Size(121, 24);
+            this.comboBox_Tarih.TabIndex = 7;
+            this.comboBox_Tarih.SelectedIndexChanged += new System.EventHandler(this.comboBox_Tarih_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(377, 390);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 26);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Tarih:";
             // 
             // frmIslemGecmisi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(960, 450);
+            this.ClientSize = new System.Drawing.Size(960, 483);
+            this.Controls.Add(this.comboBox_Tarih);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_HesapBakiyesi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tabControl1);
@@ -256,5 +286,7 @@ namespace Banka_Otomasyonu
         private System.Windows.Forms.ColumnHeader TarihVeSaat;
         private System.Windows.Forms.ColumnHeader Kimden;
         private System.Windows.Forms.ColumnHeader Aciklama;
+        private System.Windows.Forms.ComboBox comboBox_Tarih;
+        private System.Windows.Forms.Label label4;
     }
 }

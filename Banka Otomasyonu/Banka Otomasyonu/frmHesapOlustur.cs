@@ -35,7 +35,7 @@ namespace Banka_Otomasyonu
 
         private void btn_HesapOlustur_Click(object sender, EventArgs e)
         {
-            banka.Musteriler[banka.MusterininListedekiIndexi].HesapEkle();
+            banka.Musteriler[banka.MusterininListedekiIndexi].HesapEkle(banka);
             HesaplariListele(banka.Musteriler[banka.MusterininListedekiIndexi]);
 
             MessageBox.Show("Hesabınız Başarıyla Oluşturuldu");

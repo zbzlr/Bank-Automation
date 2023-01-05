@@ -18,9 +18,9 @@ namespace Banka_Otomasyonu
 
         public List<Hesap> Hesaplar = new List<Hesap>();
 
-        public Musteri(string Isim, string Soyisim, string musteriTipi, string sifre)   // Yeni Kullanıcılar İçin Çalıştırılır
+        public Musteri(string Isim, string Soyisim, string musteriTipi, string sifre,Banka banka)   // Yeni Kullanıcılar İçin Çalıştırılır
         {
-            MusteriNoAta();
+            MusteriNoAta(banka);
             MusteriAdi = Isim;
             MusteriSoyadi = Soyisim;
             MusteriTipi = musteriTipi;
@@ -36,15 +36,28 @@ namespace Banka_Otomasyonu
             Sifre = sifre;
         }
 
-        public void MusteriNoAta()
+        private void MusteriNoAta(Banka banka)
         {
             Random random = new Random();
             MusteriNo = random.Next(200, 1000);
+            bool booleanDeger = true;
+           
+                while(booleanDeger == false)         // Musteri Numarasının Baska Musterilere Verilmesini Onler
+                {
+                    foreach (Musteri mst in banka.Musteriler)
+                    {
+                        if (mst.MusteriNo == MusteriNo)
+                        {
+                            booleanDeger = false;
+                        }
+                    }
+                }
+            
         }
 
-        public void  HesapEkle()
+        public void  HesapEkle(Banka banka)
         {
-            Hesap hesap = new Hesap();
+            Hesap hesap = new Hesap(banka);
             hesap.HesapTipi = MusteriTipi;
             Hesaplar.Add(hesap);
         }
@@ -160,9 +173,23 @@ namespace Banka_Otomasyonu
         {
             int HesapIndexi = HesaplarIcindeIndexBelirle(HesapNo);
 
+            double GunlukParaCekmeSiniri = 750;
+
             if(HesaplarToplamiTutariKarsiliyorMu(CekilecekTutar) == false)
             {
                 return 0; // Hesapların Toplamı Çekilmek İstenen Tutarı Karşılamıyor. İşlem Başarısız
+            }
+
+            if(CekilecekTutar > GunlukParaCekmeSiniri)
+            {
+                MessageBox.Show("Günlük Para Çekme Sınırı 750 TL'dir...", "Islem Basarisiz");
+                return 5; // Gunluk Para Cekme Siniri Asildi.Tek Seferde. Islem Basarisiz
+            }
+
+            if(AyniGunIcindeCekilenTutariSorgula(HesapIndexi,CekilecekTutar) == false)
+            {
+                MessageBox.Show("Günlük Para Çekme Sınırı Hesap Başına 750 TL'dir.Maalesef istediğiniz Tutarı Bugün içerisinde çekemezsiniz...", "Islem Basarisiz");
+                return 6;   // Gunluk Para Cekme Siniri Asildi. Birden Fazla Deneme ile. Islem Basarisiz
             }
             
             if(HesaptaYeterliParaVarMi(HesapIndexi,CekilecekTutar) == true)
@@ -247,6 +274,29 @@ namespace Banka_Otomasyonu
                 i++;
             }
             return index;
+        }
+
+        private bool AyniGunIcindeCekilenTutariSorgula(int HesapIndexi, double CekilecekTutar)
+        {
+            double ayniGunIcindeCekilenToplamPara = 0 + CekilecekTutar;
+
+                foreach (IslemGecmisi islem in Hesaplar[HesapIndexi].Islemler)
+                {
+                    if(islem.IslemTarihi.Date == DateTime.Now.Date)
+                    {
+                        if(islem.IslemKategorisi == "Para Çekme")
+                        {
+                            ayniGunIcindeCekilenToplamPara += islem.IslemTutari;
+                        } 
+                    }
+                }
+
+                    if(ayniGunIcindeCekilenToplamPara > 750) 
+                    {
+                        return false;
+                    }
+
+            return true;
         }
         public void ParaYatir(int HesapNo, double YatirilacakTutar)
         {

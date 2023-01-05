@@ -16,10 +16,16 @@ namespace Banka_Otomasyonu
 
         Random random = new Random();
         
-        public Hesap()
+        public Hesap(Banka banka)
         {
             HesapNo = random.Next(100, 200);
             Bakiye = 0;
+
+                while (banka.HesapKimeAit(HesapNo) != -1)  //Eğer HesapNo Banka Kayıtlarında Bulunmuyorsa -1 Dönüşü Yapar
+                {
+                    HesapNo = random.Next(200, 1000);     // Bu sayede farklı musterilere aynı müşteri no atanmasını engeller
+                }
+
         }
 
         public void IslemEkle(double IslemTutari, string IslemKategorisi, DateTime IslemTarihi, int HesapNo)     // Para Çekme ve Yatırma İşlemleri İçin Kullanılır

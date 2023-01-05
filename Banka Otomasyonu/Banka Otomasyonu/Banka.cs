@@ -23,7 +23,7 @@ namespace Banka_Otomasyonu
             Musteriler.Add(musteri);
         }
 
-        public int HesapKimeAit(int HesapNo)                    // Verilen Hesap Numarasının, Müşteriler Listesinde Kaçıncı Indexteki Kullanıcıya ait olduğunu Belirler
+        public int HesapKimeAit(int HesapNo)       // Verilen Hesap Numarasının, Müşteriler Listesinde Kaçıncı Indexteki Kullanıcıya ait olduğunu Belirler
         {
             int MusteriIndexi = 0;
 

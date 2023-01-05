@@ -64,7 +64,7 @@ namespace Banka_Otomasyonu
             }
 
             
-            Musteri musteri = new Musteri(txt_Isim.Text, txt_Soyisim.Text, MusteriTipi, txt_Sifre.Text);
+            Musteri musteri = new Musteri(txt_Isim.Text, txt_Soyisim.Text, MusteriTipi, txt_Sifre.Text,banka);
             banka.YeniMusteriEkle(musteri);   
             MessageBox.Show("Kayıt Başarılı...\n\nMüşteri Numaranız: " + musteri.MusteriNo);
 

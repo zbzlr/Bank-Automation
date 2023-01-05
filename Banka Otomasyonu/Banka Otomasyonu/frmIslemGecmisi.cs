@@ -26,7 +26,6 @@ namespace Banka_Otomasyonu
                 comboBox_HesapNo.Items.Add(hesap.HesapNo);
             }
 
-            listView_Havale.BackColor = Color.PaleTurquoise;
         }
 
         private void comboBox_HesapNo_SelectedIndexChanged(object sender, EventArgs e)
@@ -35,12 +34,47 @@ namespace Banka_Otomasyonu
             listView_Havale.Items.Clear();
             listView_ParaCekYatir.Items.Clear();
 
-            foreach(IslemGecmisi islem in banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapNo.SelectedIndex].Islemler)
+            HesapGecmisiListele(TarihAraligiBelirle());
+
+            txt_HesapBakiyesi.Text = Convert.ToString(banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapNo.SelectedIndex].Bakiye);
+            
+        }
+
+        private void comboBox_Tarih_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listView_Havale.Items.Clear();
+            listView_ParaCekYatir.Items.Clear();
+
+            HesapGecmisiListele(TarihAraligiBelirle());
+
+            txt_HesapBakiyesi.Text = Convert.ToString(banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapNo.SelectedIndex].Bakiye);
+        }
+
+        private DateTime TarihAraligiBelirle()
+        {
+            switch (comboBox_Tarih.SelectedIndex)
             {
-                if(islem.IslemKategorisi.Contains("Havale") == true)
-                {
-                    continue;
-                }
+                case 1:
+                    return DateTime.Today;
+                case 2:
+                    return DateTime.Today.AddDays(-7);
+                case 3:
+                    return DateTime.Today.AddDays(-30);
+                default:
+                    return DateTime.MinValue;
+            }
+        }
+
+        private void HesapGecmisiListele(DateTime tarihAraligi)
+        {
+            foreach (IslemGecmisi islem in banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapNo.SelectedIndex].Islemler)  // Tabcontrol ilk tab için çalışır
+            {
+
+                    if (islem.IslemKategorisi.Contains("Havale") == true || islem.IslemTarihi < tarihAraligi)
+                    {
+                        continue;
+                    }
+
 
                 ListViewItem item = new ListViewItem(islem.IslemKategorisi);
                 item.SubItems.Add(Convert.ToString(islem.IslemTutari));
@@ -48,30 +82,31 @@ namespace Banka_Otomasyonu
                 listView_ParaCekYatir.Items.Add(item);
             }
 
-            foreach(IslemGecmisi islem in banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapNo.SelectedIndex].Islemler)
+            foreach (IslemGecmisi islem in banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapNo.SelectedIndex].Islemler)  // Tabcontrol ikinci tab için çalışır
             {
-                if(islem.IslemKategorisi.Contains("Havale") == false)
-                {
-                    continue;
-                }
+
+                    if (islem.IslemKategorisi.Contains("Havale") == false || islem.IslemTarihi < tarihAraligi)
+                    {
+                        continue;
+                    }
 
                 string KarsiTarafinAdiSoyadi = "";
-                if(islem.HesapNo_KarsiTaraf != null)
-                {
-                    int KarsiTarafinBankadakiIndexi = banka.HesapKimeAit(islem.HesapNo_KarsiTaraf);
-                    KarsiTarafinAdiSoyadi = banka.Musteriler[KarsiTarafinBankadakiIndexi].MusteriAdi + " " + banka.Musteriler[KarsiTarafinBankadakiIndexi].MusteriSoyadi;
-                }
-                
+
+                    if (islem.HesapNo_KarsiTaraf != null)
+                    {
+                        int KarsiTarafinBankadakiIndexi = banka.HesapKimeAit(islem.HesapNo_KarsiTaraf);
+                        KarsiTarafinAdiSoyadi = banka.Musteriler[KarsiTarafinBankadakiIndexi].MusteriAdi + " " + banka.Musteriler[KarsiTarafinBankadakiIndexi].MusteriSoyadi;
+                    }
+
                 ListViewItem item = new ListViewItem(islem.IslemKategorisi);
                 item.SubItems.Add(Convert.ToString(islem.IslemTutari));
                 item.SubItems.Add(Convert.ToString(islem.IslemTarihi));
                 item.SubItems.Add(KarsiTarafinAdiSoyadi);
                 item.SubItems.Add(islem.Aciklama);
                 listView_Havale.Items.Add(item);
+
             }
 
-            txt_HesapBakiyesi.Text = Convert.ToString(banka.Musteriler[banka.MusterininListedekiIndexi].Hesaplar[comboBox_HesapNo.SelectedIndex].Bakiye);
-            
         }
     }
 }
