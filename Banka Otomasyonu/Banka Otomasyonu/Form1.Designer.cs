@@ -39,7 +39,7 @@ namespace Banka_Otomasyonu
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.BakırcayBank = new System.Windows.Forms.NotifyIcon(this.components);
+            this.NameOfBank = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // txt_MusteriNo
@@ -64,9 +64,9 @@ namespace Banka_Otomasyonu
             this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.Location = new System.Drawing.Point(128, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(307, 49);
+            this.label3.Size = new System.Drawing.Size(317, 49);
             this.label3.TabIndex = 6;
-            this.label3.Text = "BakırçayBank";
+            this.label3.Text = "Name of Bank";
             // 
             // btn_Giris
             // 
@@ -120,11 +120,11 @@ namespace Banka_Otomasyonu
             this.label2.TabIndex = 11;
             this.label2.Text = "Müşteri No:";
             // 
-            // BakırcayBank
+            // NameOfBank
             // 
-            this.BakırcayBank.Icon = ((System.Drawing.Icon)(resources.GetObject("BakırcayBank.Icon")));
-            this.BakırcayBank.Text = "BakırçayBank";
-            this.BakırcayBank.Visible = true;
+            this.NameOfBank.Icon = ((System.Drawing.Icon)(resources.GetObject("NameOfBank.Icon")));
+            this.NameOfBank.Text = "Name of Bank";
+            this.NameOfBank.Visible = true;
             // 
             // frm_login
             // 
@@ -158,7 +158,7 @@ namespace Banka_Otomasyonu
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NotifyIcon BakırcayBank;
+        private System.Windows.Forms.NotifyIcon NameOfBank;
     }
 }
 

@@ -34,7 +34,7 @@ namespace Banka_Otomasyonu
             musteriAdmin.Hesaplar[0].HesapNo = 10;
             banka.YeniMusteriEkle(musteriAdmin);
 
-            BakırcayBank.ShowBalloonTip(5000, "BakıçayBank", "BakırçayBank'a Hoşgeldiniz", ToolTipIcon.Info);
+            NameOfBank.ShowBalloonTip(5000, "NameOfBank", "Hoşgeldiniz...", ToolTipIcon.Info);
         }
 
         private void btn_Giris_Click(object sender, EventArgs e)

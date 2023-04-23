@@ -55,7 +55,7 @@ namespace Banka_Otomasyonu
 
         private void frmAnaEkran_Load(object sender, EventArgs e)
         {
-            notifyIcon2.ShowBalloonTip(6500, "Sayın " + banka.Musteriler[banka.MusterininListedekiIndexi].MusteriAdi + " " + banka.Musteriler[banka.MusterininListedekiIndexi].MusteriSoyadi, "Hoşgeldiniz...", ToolTipIcon.Info);
+            nameOfBank2.ShowBalloonTip(6500, "Sayın " + banka.Musteriler[banka.MusterininListedekiIndexi].MusteriAdi + " " + banka.Musteriler[banka.MusterininListedekiIndexi].MusteriSoyadi, "Hoşgeldiniz...", ToolTipIcon.Info);
         }
     }
 }

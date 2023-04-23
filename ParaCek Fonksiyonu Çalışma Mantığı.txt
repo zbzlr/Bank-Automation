@@ -15,3 +15,5 @@
 15- Foreach döngüsü ile her bir hesaptan bu tutarı çek
 16- Paranın Çekildiği Hesapları Müşteriye Bildir
 17- İşlemi Bitir
+
+

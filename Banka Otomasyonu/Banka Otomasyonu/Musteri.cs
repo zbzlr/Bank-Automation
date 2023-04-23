@@ -111,7 +111,7 @@ namespace Banka_Otomasyonu
             {
                 HesaptanKesilecekTutar = IslemTutari + (IslemTutari * 0.02);
             }
-            return HesaptanKesilecekTutar;
+            return HesaptanKesilecekTutar; 
         }
 
         private bool HesapHavaleIcinMusaitMi(double IslemTutari,int HesapIndexi)       

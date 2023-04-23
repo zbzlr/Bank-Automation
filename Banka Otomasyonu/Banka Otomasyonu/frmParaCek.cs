@@ -87,7 +87,7 @@ namespace Banka_Otomasyonu
                     break;
 
 
-                case 3:    // Seçilen Hesapta Yeterli Para Yoktu. Eksik Kalan Tutar Diğer Hesaplardan Tamamlandı
+                case 3:    // Seçilen Hesapta Yeterli Para Yoktu. Eksik Kalan Tutar Diğer Hesaplardan Tamamlandı. Islem Basarili
                     
                     MessageBox.Show("İşleminiz Başarıyla Gerçekleştirildi. Hesaplarınızın Güncel Bakiyesini Hesaplarım Sekmesinden Görüntüleyebilirsiniz");
                     txt_IslemTutari.Clear();
@@ -122,7 +122,7 @@ namespace Banka_Otomasyonu
 
         private void txt_IslemTutari_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))     // Textboxa girilen değerin türünü kontrol eder
             {
                 e.Handled = true;
             }

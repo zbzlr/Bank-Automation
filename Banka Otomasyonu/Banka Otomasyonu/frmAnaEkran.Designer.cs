@@ -39,7 +39,7 @@ namespace Banka_Otomasyonu
             this.paraCekYatirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.havaleYapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.nameOfBank2 = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,11 +109,11 @@ namespace Banka_Otomasyonu
             this.cikisToolStripMenuItem.Text = "Çıkış";
             this.cikisToolStripMenuItem.Click += new System.EventHandler(this.cikisToolStripMenuItem_Click);
             // 
-            // notifyIcon2
+            // nameOfBank2
             // 
-            this.notifyIcon2.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon2.Icon")));
-            this.notifyIcon2.Text = "BakırçayBank";
-            this.notifyIcon2.Visible = true;
+            this.nameOfBank2.Icon = ((System.Drawing.Icon)(resources.GetObject("nameOfBank2.Icon")));
+            this.nameOfBank2.Text = "NameOfBank";
+            this.nameOfBank2.Visible = true;
             // 
             // frmAnaEkran
             // 
@@ -143,6 +143,6 @@ namespace Banka_Otomasyonu
         private System.Windows.Forms.ToolStripMenuItem paraCekYatirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem havaleYapToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cikisToolStripMenuItem;
-        private System.Windows.Forms.NotifyIcon notifyIcon2;
+        private System.Windows.Forms.NotifyIcon nameOfBank2;
     }
 }
